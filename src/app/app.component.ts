@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { uniq } from 'lodash';
+import { uniq, reject, isEmpty } from 'lodash';
 
 function *permute(a, n = a.length) {
   if (n <= 1) {
@@ -29,11 +29,12 @@ export class AppComponent {
   lookup(event) {
     const val = event.target.value;
     const permutations = this.permutations(val);
-    const words = permutations.map((word) => {
+    let words = permutations.map((word) => {
       if (this.wordList.indexOf(word) !== -1) {
         return word;
       }
     });
+    words = reject(words, isEmpty);
     this.myWordList = uniq(words).join(', ');
   }
 
