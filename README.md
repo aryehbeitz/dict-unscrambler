@@ -10,4 +10,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 The project is available on https://aryehbeitz.github.io/dict-unscrambler/
 
+To Build:
+
+```
+ng build --prod --output-path docs --base-href /dict-unscrambler/
+```
+
+then commit
+
 Given a word, unscrambles. teawr becomes water.
